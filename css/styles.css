@@ -181,3 +181,37 @@ body{font-family: arial,sans-serif; background-color: #191919; position: relativ
 	.movie ul{float: none; width: 100%; text-align: center; margin:10px 0;}
 	.movie ul li{float: none;}
 }
+
+/* Main Page Extra Styles */
+
+.movie-wrapper {
+	padding: 1rem 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.movie-container {
+	text-align: center;
+}
+
+.movie-container a {
+	text-decoration: none;
+	color: white;
+}
+
+.movie-container h3 {
+	padding-top: 1rem;
+}
+
+
+.movie-container img {
+	width: 250px;
+	height: auto;
+}
+
+
+section h2 {
+	display: flex;
+	justify-content: center;
+}
