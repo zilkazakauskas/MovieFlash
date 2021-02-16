@@ -215,3 +215,11 @@ section h2 {
 	display: flex;
 	justify-content: center;
 }
+
+.movie-title {
+	padding-bottom: 1rem;
+}
+
+.movie-container i {
+	color: #fcc214;
+}
