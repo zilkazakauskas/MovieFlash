@@ -223,3 +223,33 @@ section h2 {
 .movie-container i {
 	color: #fcc214;
 }
+/* footer */
+ul#socialMedia li{
+	display: inline-block;
+	padding-inline-start: 15px;
+}
+
+.footer a:link{
+color: rgb(121, 121, 121);
+text-decoration: none;
+}
+
+.footer a:visited{
+color: rgb(121, 121, 121);
+text-decoration: none;
+}
+
+.footer a:hover{
+color: rgb(196, 196, 196);
+text-decoration: none;
+}
+
+.footer a:active{
+color: rgb(121, 121, 121);
+text-decoration: none;
+}
+
+/* viso puslapio background */
+html{
+	background-color: black;
+}
