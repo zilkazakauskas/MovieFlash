@@ -18,7 +18,10 @@
 
         <!-- Demo styles -->
         <style>
-
+            img#movie-image {
+                width: 200px;
+                height: 300px;
+            }
 
 
         </style>
@@ -52,7 +55,7 @@
                     </section>
 
                     <section class="movie">
-                        <img id="img" src="">
+                        <img id="movie-image" src="">
                         <ul id='movie-data'></ul>
                     </section>
                     <section class="links">
@@ -137,7 +140,7 @@
             const movieData = movies[key];
 
             document.querySelector('#trailer').setAttribute('src', movieData['trailer'])
-            document.querySelector('#img').setAttribute('src', movieData['image'])
+            document.querySelector('#movie-image').setAttribute('src', movieData['image'])
             let dataStr = `<li><h1>${movieData['title']}</h1></li>`;
             dataStr += `\n<li>${movieData['description']}</li>`;
             dataStr += `\n<li>` + movieData['genre'].map(item => `<a href="genre.html">${item}</a>`).join(', ') + `</li>`;
