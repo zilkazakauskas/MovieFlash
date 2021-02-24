@@ -18,7 +18,10 @@
 
         <!-- Demo styles -->
         <style>
-
+            img#movie-image {
+                width: 200px;
+                height: 300px;
+            }
 
 
         </style>
@@ -46,34 +49,17 @@
                     <section class="trailer">
                         <h3>Trailer</h3>
                         <div class="trailer_frame">
-                            <!-- <iframe id="trailer" width="560" height="315" src="https://www.youtube.com/embed/x73-573aWfs" frameborder="0" allowfullscreen></iframe> -->
                             <iframe id="trailer" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </section>
 
                     <section class="movie">
-                        <img id="img" src="">
+                        <img id="movie-image" src="">
                         <ul id='movie-data'></ul>
                     </section>
                     <section class="links">
                         <h3>Times for Cinemas</h3>
-                        <div id="cinemas" class="row">
-                            <!-- <div class="col">
-                                <ul class="dlinks">
-                                    <li><a>Download</a></li>
-                                    <li><a href="#">Link1</a></li>
-                                    <li><a href="#">Link2</a></li>
-                                    <li><a href="#">Link3</a></li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                <ul class="dlinks">
-                                    <li><a>Watch</a></li>
-                                    <li><a href="#">Link1</a></li>
-                                    <li><a href="#">Link2</a></li>
-                                    <li><a href="#">Link3</a></li>
-                                </ul>
-                            </div> -->
+                        <div id="cinema-times" class="row">
                         </div>
                     </section>
 
@@ -137,7 +123,7 @@
             const movieData = movies[key];
 
             document.querySelector('#trailer').setAttribute('src', movieData['trailer'])
-            document.querySelector('#img').setAttribute('src', movieData['image'])
+            document.querySelector('#movie-image').setAttribute('src', movieData['image'])
             let dataStr = `<li><h1>${movieData['title']}</h1></li>`;
             dataStr += `\n<li>${movieData['description']}</li>`;
             dataStr += `\n<li>` + movieData['genre'].map(item => `<a href="genre.html">${item}</a>`).join(', ') + `</li>`;
@@ -146,12 +132,11 @@
             document.querySelector('#movie-data').innerHTML = dataStr;
 
             const times = Object.entries(movieData['times']).map(
-                cinema => `\n<div class="col">\n<ul class="dlinks">` +
-                          `\n<li><a>${cinema[0]}</a></li>` + 
+                cinema => `\n<div class="col">\n<ul class="dlinks">\n<li><a>${cinema[0]}</a></li>` + 
                           cinema[1].map(time => `\n<li><a href="#">${time}</a></li>`).join('') +
                           `\n</ul>\n</div>`
             );
-            document.querySelector('#cinemas').innerHTML = times;
+            document.querySelector('#cinema-times').innerHTML = times;
         </script>
     </body>
 
