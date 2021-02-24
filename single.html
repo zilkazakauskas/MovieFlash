@@ -60,7 +60,7 @@
                     </section>
                     <section class="links">
                         <h3>Times for Cinemas</h3>
-                        <div id="cinemas" class="row">
+                        <div id="cinema-times" class="row">
                             <!-- <div class="col">
                                 <ul class="dlinks">
                                     <li><a>Download</a></li>
@@ -149,12 +149,11 @@
             document.querySelector('#movie-data').innerHTML = dataStr;
 
             const times = Object.entries(movieData['times']).map(
-                cinema => `\n<div class="col">\n<ul class="dlinks">` +
-                          `\n<li><a>${cinema[0]}</a></li>` + 
+                cinema => `\n<div class="col">\n<ul class="dlinks">\n<li><a>${cinema[0]}</a></li>` + 
                           cinema[1].map(time => `\n<li><a href="#">${time}</a></li>`).join('') +
                           `\n</ul>\n</div>`
             );
-            document.querySelector('#cinemas').innerHTML = times;
+            document.querySelector('#cinema-times').innerHTML = times;
         </script>
     </body>
 
