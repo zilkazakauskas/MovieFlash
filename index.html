@@ -1,346 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<title>Movies</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <title>Movies</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-	<!-- Link Swiper's CSS -->
-	<link rel="stylesheet" href="css/swiper.min.css">
-	<link rel="stylesheet" href="css/styles.css">
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="css/swiper.min.css">
+        <link rel="stylesheet" href="css/styles.css">
 
-	<!-- Font Awesome -->
-	<script src="https://kit.fontawesome.com/9cead996c3.js" crossorigin="anonymous"></script>
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/9cead996c3.js" crossorigin="anonymous"></script>
 
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/script.js"></script>
-	<!-- font awesome -->
-	<script src="https://kit.fontawesome.com/ab8656d9ec.js" crossorigin="anonymous"></script>
-	<!-- Demo styles -->
-	<style>
-
-
-
-	</style>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
-
-<body>
-	<div class="wrapper">
-		<!-- Header -->
-		<header class="header">
-			<figure class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo"></figure></a>
-			<nav class="menu">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="terms.html">About Us</a></li>
-					<li><a href="contact.html">Contact Us</a></li>
-				</ul>
-			</nav>
-		</header>
-		<!-- Swiper -->
-		<div class="homeslider">
-			<div class="swiper-container">
-
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img src="images/slider/avatar.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Best Movies in Town</h3>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/inside.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Tasties Popcorn You Have Ever Tried!</h3>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>The Most Comfortable Movie Chairs</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Add Pagination -->
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
-
-		<main class="content">
-			<!-- RECENTLY ADDED MOVIES -->
-			<section class="panel">
-				<h2>Most Watched</h2>
-				<div class="movie-section">
-					<div class="movie-wrapper">
-						<div class="movie-container">
-							<a href="single.html"><img src="images/9.jpg">
-								<h3 class="movie-title">Space Betwen Us</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h3>6.4/10</h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html">
-								<img src="images/2.jpg" class="movie-image">
-								<h3 class="movie-title">John Wick</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half"></i>
-								<h3>7.4/10</h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html"><img src="images/3.jpg">
-								<h3 class="movie-title">Spider-Man Homecoming</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half"></i>
-								<h3>8.3/10</h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html"><img src="images/4.jpg">
-								<h3 class="movie-title">Beauty and the Beast</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half"></i>
-								<h3>7.4/10</h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html"><img src="images/5.jpg">
-								<h3>Pirates of the Caribbean: </h3>
-								<h3 class="movie-title">Dead Men Tell No Tales</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h3>6.5/10</h3>
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/script.js"></script>
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/ab8656d9ec.js" crossorigin="anonymous"></script>
+        <!-- Demo styles -->
+        <style>
 
 
 
-			<!-- RECENTLY ADDED MOVIES -->
-			<section class="panel">
-				<h2>New Releases</h2>
-				<div class="movie-section">
-					<div class="movie-wrapper">
-						<div class="movie-container">
-							<a href="single.html"><img
-									src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQOK4PDu5-BbMhmtXEDjRXWJJPtvDatQG7TYnhuDYtpaGHTO3f9">
-								<h3 class="movie-title">The Witches</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half"></i>
-								<h3>5.2/10 </h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html">
-								<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTL50EWyClxgJylvmheWC6UX4xeZYNfqjMc8VTdQCeQwbKO64_Z"
-									class="movie-image">
-								<h3 class="movie-title">Hillbilly Elegy</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h3>6.8/10</h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html"><img
-									src="https://img.24reel.com/cdn/medium/movie/3d03c80c-b691-4fa3-b065-58fec51afc41.jpg">
-								<h3 class="movie-title">Cadaver</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half"></i>
-								<h3>5.1/10 </h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html"><img src="https://miro.medium.com/max/2800/0*uy7Q3KPc4v5oymSL.jpg">
-								<h3 class="movie-title">One Night in Miami</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star-half"></i>
-								<h3>7.2/10</h3>
-							</a>
-						</div>
-						<div class="movie-container">
-							<a href="single.html"><img
-									src="https://m.media-amazon.com/images/M/MV5BZDExM2Y5MzYtYmMxNS00ZWU4LTkwYzEtY2JiMWU2NTFlZWM5XkEyXkFqcGdeQXVyODE0OTU5Nzg@._V1_.jpg">
-								<h3 class="movie-title">Black Box</h3>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<h3>6.2/10</h3>
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<!-- Footer -->
-		<footer class="footer sticky-bottom">
-			<div class="row">
-				<div class="col-3">
-					<ul id="socialMedia">
-						<li id="pirmas"><a id="link" href="">Facebook <i class="fab fa-facebook-square"></i></a></li>
-						<li><a id="link" href="">Instagram <i class="fab fa-instagram"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-6" style="color: rgb(121, 121, 121); text-align: center;">Movie flash &copy</div>
-				<div class="col-2" style="text-align: right;"><a id="link" href="#">info@movieflash.com</a></div>
-			</div>
-		</footer>
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    </head>
 
-		<!-- Swiper JS -->
-		<script src="js/swiper.min.js"></script>
+    <body>
+        <div class="wrapper">
+            <!-- Header -->
+            <header class="header">
+                <figure class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo"></figure></a>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="terms.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- Swiper -->
+            <div class="homeslider">
+                <div class="swiper-container">
 
-		<!-- Initialize Swiper -->
-		<script>
-			$(document).ready(function () {
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="images/slider/avatar.jpg">
+                            <div class="caption">
+                                <div class="captioninside">
+                                    <h3>Best Movies in Town</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/slider/inside.jpg">
+                            <div class="caption">
+                                <div class="captioninside">
+                                    <h3>Tasties Popcorn You Have Ever Tried!</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/slider/poster2.jpg">
+                            <div class="caption">
+                                <div class="captioninside">
+                                    <h3>The Most Comfortable Movie Chairs</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
 
+            <main class="content">
+                <!-- RECENTLY ADDED MOVIES -->
+                <section class="panel">
+                    <h2>Most Watched</h2>
+                    <div class="movie-section">
+                        <div class="movie-wrapper">
+                            <div class="movie-container">
+                                <a href="single.html?id=1"><img src="images/1.jpg">
+                                    <h3 class="movie-title">Space Betwen Us</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <h3>6.4/10</h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=2">
+                                    <img src="images/2.jpg" class="movie-image">
+                                    <h3 class="movie-title">John Wick</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                    <h3>7.4/10</h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=3"><img src="images/3.jpg">
+                                    <h3 class="movie-title">Spider-Man Homecoming</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                    <h3>8.3/10</h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=4"><img src="images/4.jpg">
+                                    <h3 class="movie-title">Beauty and the Beast</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                    <h3>7.4/10</h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=5"><img src="images/5.jpg">
+                                    <h3>Pirates of the Caribbean: </h3>
+                                    <h3 class="movie-title">Dead Men Tell No Tales</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <h3>6.5/10</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-				var swiper = new Swiper('.homeslider > .swiper-container', {
-					pagination: '.swiper-pagination',
-					paginationClickable: true,
-					preventClicks: false,
-					preventClicksPropagation: false,
-					effect: 'fade',
-					breakpoints: {
-						320: {
-							height: 200
-						},
+                <!-- RECENTLY ADDED MOVIES -->
+                <section class="panel">
+                    <h2>New Releases</h2>
+                    <div class="movie-section">
+                        <div class="movie-wrapper">
+                            <div class="movie-container">
+                                <a href="single.html?id=6"><img src="images/6a.jpg">
+                                    <h3 class="movie-title">The Witches</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                    <h3>5.2/10 </h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=7">
+                                    <img src="images/7a.jpg" class="movie-image">
+                                    <h3 class="movie-title">Hillbilly Elegy</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <h3>6.8/10</h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=8"><img src="images/8a.jpg">
+                                    <h3 class="movie-title">Cadaver</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                    <h3>5.1/10 </h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=9"><img src="images/9.jpg">
+                                    <h3 class="movie-title">One Night in Miami</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                    <h3>7.2/10</h3>
+                                </a>
+                            </div>
+                            <div class="movie-container">
+                                <a href="single.html?id=10"><img src="images/10.jpg">
+                                    <h3 class="movie-title">Black Box</h3>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <h3>6.2/10</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!-- Footer -->
+            <footer class="footer sticky-bottom">
+                <div class="row">
+                    <div class="col-3">
+                        <ul id="socialMedia">
+                            <li id="pirmas"><a id="link" href="">Facebook <i class="fab fa-facebook-square"></i></a></li>
+                            <li><a id="link" href="">Instagram <i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6" style="color: rgb(121, 121, 121); text-align: center;">Movie flash &copy</div>
+                    <div class="col-2" style="text-align: right;"><a id="link" href="#">info@movieflash.com</a></div>
+                </div>
+            </footer>
 
-						480: {
-							height: 300
-						},
+            <!-- Swiper JS -->
+            <script src="js/swiper.min.js"></script>
 
-						768: {
-							height: 400
-						},
-						1024: {
-							height: 500
-						}
-					}
-				});
-
-				var recentswiper = new Swiper('.recentslider > .swiper-container', {
-					nextButton: '.recent-next',
-					prevButton: '.recent-prev',
-					slidesPerView: 8,
-					paginationClickable: true,
-					preventClicks: false,
-					preventClicksPropagation: false,
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						768: {
-							slidesPerView: 5,
-							spaceBetween: 5
-						},
-						1024: {
-							slidesPerView: 6,
-							spaceBetween: 10
-						}
-					}
-				});
-
-				var mostswiper = new Swiper('.mostslider > .swiper-container', {
-					nextButton: '.most-next',
-					prevButton: '.most-prev',
-					slidesPerView: 8,
-					paginationClickable: true,
-					preventClicks: false,
-					preventClicksPropagation: false,
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						768: {
-							slidesPerView: 5,
-							spaceBetween: 5
-						},
-						1024: {
-							slidesPerView: 6,
-							spaceBetween: 10
-						}
-					}
-				});
-
-				var topswiper = new Swiper('.topslider > .swiper-container', {
-					nextButton: '.top-next',
-					prevButton: '.top-prev',
-					slidesPerView: 8,
-					paginationClickable: true,
-					preventClicks: false,
-					preventClicksPropagation: false,
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						768: {
-							slidesPerView: 5,
-							spaceBetween: 5
-						},
-						1024: {
-							slidesPerView: 6,
-							spaceBetween: 10
-						}
-					}
-				});
-
-			});
+            <!-- Initialize Swiper -->
+            <script>
+                $(document).ready(function () {
 
 
-		</script>
+                    var swiper = new Swiper('.homeslider > .swiper-container', {
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true,
+                        preventClicks: false,
+                        preventClicksPropagation: false,
+                        effect: 'fade',
+                        breakpoints: {
+                            320: {
+                                height: 200
+                            },
+
+                            480: {
+                                height: 300
+                            },
+
+                            768: {
+                                height: 400
+                            },
+                            1024: {
+                                height: 500
+                            }
+                        }
+                    });
+
+                    var recentswiper = new Swiper('.recentslider > .swiper-container', {
+                        nextButton: '.recent-next',
+                        prevButton: '.recent-prev',
+                        slidesPerView: 8,
+                        paginationClickable: true,
+                        preventClicks: false,
+                        preventClicksPropagation: false,
+                        spaceBetween: 10,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 3,
+                                spaceBetween: 5
+                            },
+
+                            480: {
+                                slidesPerView: 3,
+                                spaceBetween: 5
+                            },
+
+                            768: {
+                                slidesPerView: 5,
+                                spaceBetween: 5
+                            },
+                            1024: {
+                                slidesPerView: 6,
+                                spaceBetween: 10
+                            }
+                        }
+                    });
+
+                    var mostswiper = new Swiper('.mostslider > .swiper-container', {
+                        nextButton: '.most-next',
+                        prevButton: '.most-prev',
+                        slidesPerView: 8,
+                        paginationClickable: true,
+                        preventClicks: false,
+                        preventClicksPropagation: false,
+                        spaceBetween: 10,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 3,
+                                spaceBetween: 5
+                            },
+
+                            480: {
+                                slidesPerView: 3,
+                                spaceBetween: 5
+                            },
+
+                            768: {
+                                slidesPerView: 5,
+                                spaceBetween: 5
+                            },
+                            1024: {
+                                slidesPerView: 6,
+                                spaceBetween: 10
+                            }
+                        }
+                    });
+
+                    var topswiper = new Swiper('.topslider > .swiper-container', {
+                        nextButton: '.top-next',
+                        prevButton: '.top-prev',
+                        slidesPerView: 8,
+                        paginationClickable: true,
+                        preventClicks: false,
+                        preventClicksPropagation: false,
+                        spaceBetween: 10,
+                        breakpoints: {
+                            320: {
+                                slidesPerView: 3,
+                                spaceBetween: 5
+                            },
+
+                            480: {
+                                slidesPerView: 3,
+                                spaceBetween: 5
+                            },
+
+                            768: {
+                                slidesPerView: 5,
+                                spaceBetween: 5
+                            },
+                            1024: {
+                                slidesPerView: 6,
+                                spaceBetween: 10
+                            }
+                        }
+                    });
+
+                });
 
 
-	</div>
-</body>
+            </script>
+
+
+        </div>
+    </body>
 
 </html>
