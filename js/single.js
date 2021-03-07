@@ -64,11 +64,11 @@ const cinemasTimes = Object.entries(showing).map(cinemaDates => {
                 const golden = Number(quantity) > 0 ? 'golden' : '';
                 return `
                 <li>
-                    <a 
-                        class="${golden}" 
-                        href="#cinemas-times" 
-                        data-cinema="${cinema}" 
-                        data-date="${date}" 
+                    <a
+                        class="${golden}"
+                        href="#"
+                        data-cinema="${cinema}"
+                        data-date="${date}"
                         data-quantity="${quantity}"
                         data-new-quantity="${quantity}">${time}</a>
                     <input class="quantity" type="number" min="0" value="${quantity}"/>
@@ -99,6 +99,7 @@ document.querySelectorAll('input.quantity').forEach(element => element.addEventL
 
 document.querySelectorAll('a[data-cinema]').forEach(
     element => element.addEventListener('click', event => {
+        event.preventDefault();
         const target = event.target;
         const quantity = target.getAttribute('data-quantity');
         const newQuantity = target.getAttribute('data-new-quantity');
@@ -116,11 +117,11 @@ document.querySelectorAll('a[data-cinema]').forEach(
         const date = target.getAttribute('data-date');
         const time = target.textContent;
         if (confirm(`
-                Movie Title: ${title}
-                Name of Cinema: ${cinema}
+                Movie: ${title}
+                Cinema: ${cinema}
                 Date: ${date}
                 Time: ${time}
-                Number of Tickets: ${newQuantity}
+                Quantity: ${newQuantity}
         `)) {
             const storageData = localStorage.getItem('tickets');
             // const tickets = storageData ? JSON.parse(storageData) : {};
