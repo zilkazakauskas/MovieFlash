@@ -15,9 +15,21 @@ dataStr += `\n<li>` + movieData['cast'].map(item => `<a href="cast.html">${item}
 dataStr += `\n<li><h3>Score: ` + movieData['score'] + "/10" + `</h3></li>\n`
 document.querySelector('#movie-data').innerHTML = dataStr;
 
-const times = Object.entries(movieData['times']).map(
-    cinema => `\n<div class="col">\n<ul class="dlinks">\n<li><a>${cinema[0]}</a></li>` +
-        cinema[1].map(time => `\n<li><a href="#">${time}</a></li>`).join('') +
-        `\n</ul>\n</div>`
-);
-document.querySelector('#cinema-times').innerHTML = times;
+const cinemasTimes = Object.entries(movieData['showing']).map(cinemaDates => {
+    const [cinema, dates] = cinemaDates;
+    const dateStr = Object.entries(dates).map(dateTimes => {
+        const [date, times] = dateTimes;
+        const timesStr = times.map(time => `<li><a href="#">${time}</a></li>`).join("\n");
+        return `<li><a>${date}</a><ul class="wlinks times">${timesStr}</ul></li>`;
+    }).join("\n");
+    return `
+    <div class="row">
+        <ul class="wlinks col cinemas">
+            <li><a>${cinema}</a></li>
+        </ul>
+        <ul class="wlinks col">
+            ${dateStr}
+        </ul>
+    </div>`;
+});
+document.querySelector('#cinemas-times').innerHTML += cinemasTimes;
