@@ -3,6 +3,7 @@ import CartStorage from './CartStorage.js'
 
 const cartStorage = CartStorage.instance('tickets');
 const cartTickets = cartStorage.store;
+console.log(cartTickets);
 
 //bilietu listas
 const ul = document.getElementById("ticketsList");
@@ -28,20 +29,39 @@ Object.entries(cartTickets).forEach(ticket => {
         Cinema: ${cinema}<br />
         Date: ${date}<br />
         Time: ${time}<br />
-        Quantity: ${quantity}<br />
-        <button id="btnDelete_${id}" class="btn btn-danger mt-2" data-key="${key}">Remove</button>
+        Quantity: <span data-key="${key}">${quantity}</span><br />
+        <button class="btn btn-success" role="button" data-key="${key}" data-action="plus">+</button>
+        <button class="btn btn-danger" role="button" data-key="${key}" data-action="minus">-</button> <br />
+        <button class="btn btn-warning mt-2" data-key="${key}" data-action="remove">Remove movie</button>
         <hr />
     `;
+    
     ul.appendChild(li);
-    console.log(li);
 });
 
 ul.querySelectorAll('button').forEach(button => {
     button.addEventListener("click", event => {
         const key = event.target.getAttribute('data-key');
-        const li = document.querySelector(`li[data-key="${key}"]`);
-        li.innerHTML = "";
-        cartStorage.removeItem(key);
+        const span = document.querySelector(`span[data-key="${key}"]`);
+        const action = event.target.getAttribute('data-action');
+        let quantity = parseInt(span.innerHTML);
+
+        if (action == 'plus') {
+            quantity++;
+        } else if (action == 'minus') {
+            quantity--;
+        } else if (action == 'remove') {
+            quantity = 0;
+        }
+
+        if(quantity < 1) {
+            const li = document.querySelector(`li[data-key="${key}"]`);
+            li.innerHTML = "";
+            cartStorage.removeItem(key);
+            return;
+        }
+        span.textContent = `${quantity}`;
+        cartStorage.setItem(key, { quantity });
     })
 });
 
@@ -72,5 +92,3 @@ btnCheckout.addEventListener("click", function () {
     btnClearCart.setAttribute('class', 'btnHidden');
     btnCheckout.setAttribute('class', 'btnHidden');   
 });
-
-
