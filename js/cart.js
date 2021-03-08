@@ -76,7 +76,7 @@ btnClearCart.addEventListener("click", function () {
         if (willDelete) {
             ul.innerHTML = '';
             emptyMsg.innerHTML = "<h3 style='color: white; text-align: center'>Cart is empty!</h3>"
-            localStorage.clear();
+            cartStorage.clear();
             btnClearCart.setAttribute('class', 'btnHidden');
             btnCheckout.setAttribute('class', 'btnHidden');
         } 
@@ -88,7 +88,7 @@ btnCheckout.addEventListener("click", function () {
     swal("Thank you for purchase!");
     ul.innerHTML = '';
     emptyMsg.innerHTML = "<h3 style='color: white; text-align: center'>Cart is empty!</h3>"
-    localStorage.clear();
+    cartStorage.clear();
     btnClearCart.setAttribute('class', 'btnHidden');
     btnCheckout.setAttribute('class', 'btnHidden');   
 });
