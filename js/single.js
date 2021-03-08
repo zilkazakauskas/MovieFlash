@@ -1,4 +1,5 @@
 import movies, { index } from '../data/movies.js';
+import CartStorage from './CartStorage.js'
 
 const url_string = window.location.href
 const url = new URL(url_string);
@@ -48,10 +49,8 @@ const convertToStorageFormat = (obj = {}) => {
     return result;
 }
 
-const storageData = localStorage.getItem('tickets');
-// tickets = storageData ? JSON.parse(storageData) : {};
-const ticketsArray = storageData ? JSON.parse(storageData) : [];
-const tickets = convertFromStorageFormat(ticketsArray);
+const cartStorage = CartStorage.instance('tickets');
+const tickets = cartStorage.store;
 
 const cinemasTimes = Object.entries(showing).map(cinemaDates => {
     const [cinema, dates] = cinemaDates;
@@ -123,19 +122,12 @@ document.querySelectorAll('a[data-cinema]').forEach(
                 Time: ${time}
                 Quantity: ${newQuantity}
         `)) {
-            const storageData = localStorage.getItem('tickets');
-            // const tickets = storageData ? JSON.parse(storageData) : {};
-            const ticketsArray = storageData ? JSON.parse(storageData) : [];
-            const tickets = convertFromStorageFormat(ticketsArray);
             const key = `${id};${cinema};${date};${time}`;
             if (newQuantity > 0) {
-                tickets[key] = { title, quantity: newQuantity };
+                cartStorage.setItem(key, { quantity: newQuantity });
             } else {
-                delete tickets[key];
+                cartStorage.removeItem(key);
             }
-            const newTicketsArray = convertToStorageFormat(tickets);
-            //  localStorage.setItem('tickets', JSON.stringify(tickets));
-            localStorage.setItem('tickets', JSON.stringify(newTicketsArray));
             target.setAttribute('data-quantity', newQuantity)
             if (newQuantity > 0) {
                 target.classList.add('golden');
