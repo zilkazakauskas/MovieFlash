@@ -13,7 +13,6 @@ const btnClearCart = document.getElementById("btnClearCart");
 
 // bilietu listo generavimas
 
-// cartTickets.forEach(ticket => {
 Object.entries(cartTickets).forEach(ticket => {
     const [ key, value ] = ticket;
     const [ id, cinema, date, time ] = key.split(';');
@@ -21,18 +20,29 @@ Object.entries(cartTickets).forEach(ticket => {
     const idx = index[id];
     const { title } = movies[idx];
     const li = document.createElement("li");
-    li.setAttribute('id', id);
-    li.setAttribute('class', 'tickets');
-    li.innerHTML = `Movie tittle: ${title} <br> Cinema: ${cinema}<br> Date: ${date}<br> Time: ${time}<br> Quantity: ${quantity}<br><button class='btn btn-danger mt-2' id='btnDelete_${id}'>Remove</button><hr>`
+    li.setAttribute('id', `liTicket_${id}`);
+    li.setAttribute('className', 'tickets');
+    li.setAttribute('data-key', key);
+    li.innerHTML = `
+        Movie tittle: ${title} <br />
+        Cinema: ${cinema}<br />
+        Date: ${date}<br />
+        Time: ${time}<br />
+        Quantity: ${quantity}<br />
+        <button id="btnDelete_${id}" class="btn btn-danger mt-2" data-key="${key}">Remove</button>
+        <hr />
+    `;
     ul.appendChild(li);
+    console.log(li);
+});
 
-    const btnDelete = document.getElementById(`btnDelete_${id}`);
-    btnDelete.addEventListener("click", function(){
-        li.innerHTML="";
-        // cartStorage.removeItem(key);
+ul.querySelectorAll('button').forEach(button => {
+    button.addEventListener("click", event => {
+        const key = event.target.getAttribute('data-key');
+        const li = document.querySelector(`li[data-key="${key}"]`);
+        li.innerHTML = "";
+        cartStorage.removeItem(key);
     })
-
-    console.log(li.textContent, "\n");
 });
 
 btnClearCart.addEventListener("click", function () {
