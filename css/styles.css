@@ -261,3 +261,14 @@ text-decoration: none;
 html{
 	background-color: black;
 }
+
+/* krepselis headeryje */
+#cart-li{
+	position: fixed;
+	right: 5%;
+}
+
+/* paslepti mygtukams krepselio */
+.btnHidden{
+	display: none;
+}
