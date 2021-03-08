@@ -38,30 +38,32 @@ Object.entries(cartTickets).forEach(ticket => {
     ul.appendChild(li);
 });
 
+function handleBtnClick(event) {
+    const key = event.target.getAttribute('data-key');
+    const span = document.querySelector(`span[data-key="${key}"]`);
+    const action = event.target.getAttribute('data-action');
+    let quantity = parseInt(span.innerHTML);
+
+    if (action == 'plus') {
+        quantity++;
+    } else if (action == 'minus') {
+        quantity--;
+    } else if (action == 'remove') {
+        quantity = 0;
+    }
+
+    if (quantity < 1) {
+        const li = document.querySelector(`li[data-key="${key}"]`);
+        li.innerHTML = "";
+        cartStorage.removeItem(key);
+        return;
+    }
+    span.textContent = `${quantity}`;
+    cartStorage.setItem(key, { quantity });
+}
+
 ul.querySelectorAll('button').forEach(button => {
-    button.addEventListener("click", event => {
-        const key = event.target.getAttribute('data-key');
-        const span = document.querySelector(`span[data-key="${key}"]`);
-        const action = event.target.getAttribute('data-action');
-        let quantity = parseInt(span.innerHTML);
-
-        if (action == 'plus') {
-            quantity++;
-        } else if (action == 'minus') {
-            quantity--;
-        } else if (action == 'remove') {
-            quantity = 0;
-        }
-
-        if (quantity < 1) {
-            const li = document.querySelector(`li[data-key="${key}"]`);
-            li.innerHTML = "";
-            cartStorage.removeItem(key);
-            return;
-        }
-        span.textContent = `${quantity}`;
-        cartStorage.setItem(key, { quantity });
-    })
+    button.addEventListener("click", handleBtnClick)
 });
 
 btnClearCart.addEventListener("click", function () {
