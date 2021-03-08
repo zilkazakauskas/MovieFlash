@@ -52,6 +52,11 @@ class CartStorage {
         delete tickets[key];
         this.store = tickets;
     }
+
+    clear() {
+        const itemName = this.#itemName
+        localStorage.removeItem(itemName);
+    }
 }
 
 export default CartStorage
