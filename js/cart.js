@@ -1,31 +1,38 @@
-import tickets from '../data/tickets.js'
+import movies, { index } from '../data/movies.js'
+import CartStorage from './CartStorage.js'
 
-localStorage.setItem('tickets', JSON.stringify(tickets));
+const cartStorage = CartStorage.instance('tickets');
+const cartTickets = cartStorage.store;
 
-let cartTickets = JSON.parse(localStorage.getItem('tickets'));
 //bilietu listas
-let ul = document.getElementById("ticketsList");
-let emptyMsg = document.querySelector(".cartTickets");
+const ul = document.getElementById("ticketsList");
+const emptyMsg = document.querySelector(".cartTickets");
 
-let btnCheckout = document.getElementById("btnCheckout");
-let btnClearCart = document.getElementById("btnClearCart");
+const btnCheckout = document.getElementById("btnCheckout");
+const btnClearCart = document.getElementById("btnClearCart");
 
 // bilietu listo generavimas
 
-cartTickets.forEach(ticket => {
-    let li = document.createElement("li");
-    li.setAttribute('id', ticket.id);
+// cartTickets.forEach(ticket => {
+Object.entries(cartTickets).forEach(ticket => {
+    const [ key, value ] = ticket;
+    const [ id, cinema, date, time ] = key.split(';');
+    const { quantity } = value;
+    const idx = index[id];
+    const { title } = movies[idx];
+    const li = document.createElement("li");
+    li.setAttribute('id', id);
     li.setAttribute('class', 'tickets');
-    li.innerHTML = `Movie tittle: ${ticket.title} <br> Cinema: ${ticket.cinema}<br> Date: ${ticket.date}<br> Time: ${ticket.time}<br> Amount: ${ticket.amount}<br><button class='btn btn-danger mt-2' id='btnDelete'>Remove</button><hr>`
+    li.innerHTML = `Movie tittle: ${title} <br> Cinema: ${cinema}<br> Date: ${date}<br> Time: ${time}<br> Quantity: ${quantity}<br><button class='btn btn-danger mt-2' id='btnDelete_${id}'>Remove</button><hr>`
     ul.appendChild(li);
 
-    let btnDelete = document.getElementById("btnDelete");
+    const btnDelete = document.getElementById(`btnDelete_${id}`);
     btnDelete.addEventListener("click", function(){
         li.innerHTML="";
+        // cartStorage.removeItem(key);
     })
 
-
-    console.log(li);
+    console.log(li.textContent, "\n");
 });
 
 btnClearCart.addEventListener("click", function () {
