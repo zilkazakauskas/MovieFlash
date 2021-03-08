@@ -16,7 +16,7 @@ class CartStorage {
                 this[singleton] = new CartStorage(singletonEnforcer);
                 this[singleton].#itemName = itemName;
             }
-        } else if (typeof myVar !== 'undefined') {
+        } else if (typeof itemName !== 'undefined') {
             throw `Type of 'itemName' is not allowed!`;
         }
         if (!this[singleton]) {
