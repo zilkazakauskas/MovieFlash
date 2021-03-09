@@ -1,6 +1,20 @@
 import movies, { index } from '../data/movies.js'
 import CartStorage from './CartStorage.js'
 
+const url_string = window.location.href
+const url = new URL(url_string);
+const pageName = url.searchParams.get("p");
+const movieId = url.searchParams.get("id");
+let href = '';
+if (pageName) {
+    href = `${pageName}.html`;
+    if (movieId) {
+        href += `?id=${movieId}`;
+    }
+}
+
+document.querySelector('#back-page').setAttribute('href', href);
+
 //bilietu listas
 const ul = document.querySelector("#ticketsList");
 const emptyMsg = document.querySelector("#empty-msg");

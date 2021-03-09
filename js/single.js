@@ -3,10 +3,12 @@ import CartStorage from './CartStorage.js'
 
 const url_string = window.location.href
 const url = new URL(url_string);
-const paramID = url.searchParams.get("id");
-const idx = index[paramID];
+const movieId = url.searchParams.get("id");
+const idx = index[movieId];
 const movieData = movies[idx];
 const { id, title, trailer, image, description, cast, genre, score, showing } = movieData;
+
+document.querySelector('#cart-li > a').setAttribute('href', `cart.html?p=single&id=${movieId}`);
 
 document.querySelector('#trailer').setAttribute('src', trailer)
 document.querySelector('#movie-image').setAttribute('src', image)
