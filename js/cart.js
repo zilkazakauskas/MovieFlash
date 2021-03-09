@@ -67,14 +67,18 @@ function createPage() {
             quantity = 0;
         }
 
-        if (quantity < 1) {
-            const li = document.querySelector(`li[data-key="${key}"]`);
-            li.innerHTML = "";
-            cartStorage.removeItem(key);
+        if (quantity > 0) {
+            span.textContent = `${quantity}`;
+            cartStorage.setItem(key, { quantity });
             return;
         }
-        span.textContent = `${quantity}`;
-        cartStorage.setItem(key, { quantity });
+
+        const li = document.querySelector(`li[data-key="${key}"]`);
+        li.innerHTML = "";
+        cartStorage.removeItem(key);
+        if (Object.keys(cartStorage.store).length < 1) {
+            storageIsEmpty();
+        }
     }
 
     ul.querySelectorAll('button').forEach(button => {
