@@ -68,8 +68,7 @@ function createPage() {
         }
 
         if (quantity < 1) {
-            const li = document.querySelector(`li[data-key="${key}"]`);
-            li.innerHTML = "";
+            storageIsEmpty();
             cartStorage.removeItem(key);
             return;
         }
