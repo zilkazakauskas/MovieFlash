@@ -42,7 +42,7 @@ class CartStorage {
         this.store = tickets;
     }
 
-    getValue(key) {
+    getItem(key) {
         const tickets = this.store;
         return tickets[key];
     }
