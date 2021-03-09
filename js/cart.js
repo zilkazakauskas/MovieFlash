@@ -2,19 +2,25 @@ import movies, { index } from '../data/movies.js'
 import CartStorage from './CartStorage.js'
 
 //bilietu listas
-const ul = document.getElementById("ticketsList");
-const emptyMsg = document.querySelector(".cartTickets");
+const ul = document.querySelector("#ticketsList");
+const emptyMsg = document.querySelector("#empty-msg");
 
-const btnCheckout = document.getElementById("btnCheckout");
-const btnClearCart = document.getElementById("btnClearCart");
+const btnCheckout = document.querySelector("#btnCheckout");
+const btnClearCart = document.querySelector("#btnClearCart");
 
 // bilietu listo generavimas
 
 function storageIsEmpty() {
     ul.innerHTML = '';
-    emptyMsg.innerHTML = "<h3 style='color: white; text-align: center'>Cart is empty!</h3>"
-    btnClearCart.setAttribute('class', 'btnHidden');
-    btnCheckout.setAttribute('class', 'btnHidden');
+    emptyMsg.classList.remove('invisible');
+    btnClearCart.classList.add('invisible');
+    btnCheckout.classList.add('invisible');
+}
+
+function storageIsFull() {
+    emptyMsg.classList.add('invisible');
+    btnClearCart.classList.remove('invisible');
+    btnCheckout.classList.remove('invisible');
 }
 
 function createPage() {
@@ -28,6 +34,7 @@ function createPage() {
         return;
     }
 
+    storageIsFull();
 
     Object.entries(cartTickets).forEach(ticket => {
         const [key, value] = ticket;
@@ -39,7 +46,7 @@ function createPage() {
         li.setAttribute('className', 'tickets');
         li.setAttribute('data-key', key);
         li.innerHTML = `
-        Movie tittle: ${title}<br />
+        Movie title: ${title}<br />
         Cinema: ${cinema}<br />
         Date: ${date}<br />
         Time: ${time}<br />
