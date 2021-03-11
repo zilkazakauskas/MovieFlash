@@ -17,3 +17,9 @@ const stickyFunction = () => {
         header.classList.remove('sticky');
     }
 }
+
+import CartStorage from './CartStorage.js'
+
+const cartStorage = CartStorage.instance('tickets');
+const cartSize = document.querySelector('#cart-size')
+cartSize.textContent = cartStorage.size;

@@ -36,7 +36,12 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="terms.html">About Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li id="cart-li"><a id="back-page" href="index.html"><i class="fas fa-angle-double-left"></i></a></li>
+                    <li id="cart-li">
+                        <a id="back-page" href="index.html">
+                            <i class="fas fa-angle-double-left"></i>
+                            <span id="cart-size" class="fw-bolder"></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -72,9 +77,8 @@
         </footer>
 
     </div>
-    <script type="module">
-        import './js/cart.js'
-    </script>
+    <script type="module" src="./js/cart.js"></script>
+    <script type="module" src="./js/header.js"></script>
 </body>
 
 </html>

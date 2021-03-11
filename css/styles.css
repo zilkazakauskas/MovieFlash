@@ -267,3 +267,8 @@ html{
 	position: fixed;
 	right: 5%;
 }
+
+#cart-size {
+    color: red;
+    vertical-align: super;
+}

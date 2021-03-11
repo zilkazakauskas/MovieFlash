@@ -8,7 +8,11 @@ const idx = index[movieId];
 const movieData = movies[idx];
 const { id, title, trailer, image, description, cast, genre, score, showing } = movieData;
 
-document.querySelector('#cart-li > a').setAttribute('href', `cart.html?p=single&id=${movieId}`);
+const cartStorage = CartStorage.instance('tickets');
+const tickets = cartStorage.store;
+
+document.querySelector('#cart-li > a').setAttribute('href', `cart.html?p=single&id=${movieId}&a=cinemas-times`);
+const cartSize = document.querySelector('#cart-size')
 
 document.querySelector('#trailer').setAttribute('src', trailer)
 document.querySelector('#movie-image').setAttribute('src', image)
@@ -26,33 +30,6 @@ const dataStr = [
 ];
 
 document.querySelector('#movie-data').innerHTML = dataStr.join("\n");
-
-const convertFromStorageFormat = (ticketsArray = []) => {
-    const result = Object.fromEntries(ticketsArray.map(
-        item => {
-            const { id, title, cinema, date, time } = item;
-            const quantity = item.amount;
-            const key = `${id};${cinema};${date};${time}`;
-            return [key, { title, quantity }];
-        }
-    ));
-    return result;
-}
-
-const convertToStorageFormat = (obj = {}) => {
-    const result = Object.entries(obj).map(
-        entry => {
-            const [key, value] = entry;
-            const parts = key.split(';');
-            const item = { id: parts[0], title: value.title, cinema: parts[1], date: parts[2], time: parts[3], amount: value.quantity };
-            return item;
-        }
-    )
-    return result;
-}
-
-const cartStorage = CartStorage.instance('tickets');
-const tickets = cartStorage.store;
 
 const cinemasTimes = Object.entries(showing).map(cinemaDates => {
     const [cinema, dates] = cinemaDates;
@@ -98,44 +75,47 @@ document.querySelectorAll('input.quantity').forEach(element => element.addEventL
     }
 ));
 
-document.querySelectorAll('a[data-cinema]').forEach(
-    element => element.addEventListener('click', event => {
-        event.preventDefault();
-        const target = event.target;
-        const quantity = target.getAttribute('data-quantity');
-        const newQuantity = target.getAttribute('data-new-quantity');
-        if (!newQuantity || newQuantity < 0) {
-            alert('You must specify a valid number of tickets');
-            target.setAttribute('data-new-quantity', quantity);
-            event.target.parentElement.querySelector('input').value = quantity;
-            return;
-        }
-        if (quantity === newQuantity) {
-            alert(`You specified the same number of tickets.\nIt is nothing to do.`);
-            return;
-        }
-        const cinema = target.getAttribute('data-cinema');
-        const date = target.getAttribute('data-date');
-        const time = target.textContent;
-        if (confirm(`
+function clickHandler(event) {
+    event.preventDefault();
+    const target = event.target;
+    const quantity = target.getAttribute('data-quantity');
+    const newQuantity = target.getAttribute('data-new-quantity');
+    if (!newQuantity || newQuantity < 0) {
+        alert('You must specify a valid number of tickets');
+        target.setAttribute('data-new-quantity', quantity);
+        event.target.parentElement.querySelector('input').value = quantity;
+        return;
+    }
+    if (quantity === newQuantity) {
+        alert(`You specified the same number of tickets.\nIt is nothing to do.`);
+        return;
+    }
+    const cinema = target.getAttribute('data-cinema');
+    const date = target.getAttribute('data-date');
+    const time = target.textContent;
+    if (confirm(`
                 Movie: ${title}
                 Cinema: ${cinema}
                 Date: ${date}
                 Time: ${time}
                 Quantity: ${newQuantity}
         `)) {
-            const key = `${id};${cinema};${date};${time}`;
-            if (newQuantity > 0) {
-                cartStorage.setItem(key, { quantity: newQuantity });
-            } else {
-                cartStorage.removeItem(key);
-            }
-            target.setAttribute('data-quantity', newQuantity)
-            if (newQuantity > 0) {
-                target.classList.add('golden');
-            } else {
-                target.classList.remove('golden');
-            }
+        const key = `${id};${cinema};${date};${time}`;
+        if (newQuantity > 0) {
+            cartStorage.setItem(key, { quantity: newQuantity });
+        } else {
+            cartStorage.removeItem(key);
         }
-    })
+        target.setAttribute('data-quantity', newQuantity)
+        if (newQuantity > 0) {
+            target.classList.add('golden');
+        } else {
+            target.classList.remove('golden');
+        }
+    }
+    cartSize.textContent = cartStorage.size;
+}
+
+document.querySelectorAll('a[data-cinema]').forEach(
+    element => element.addEventListener('click', clickHandler)
 );

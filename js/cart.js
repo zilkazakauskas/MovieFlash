@@ -5,11 +5,15 @@ const url_string = window.location.href
 const url = new URL(url_string);
 const pageName = url.searchParams.get("p");
 const movieId = url.searchParams.get("id");
+const anchor = url.searchParams.get("a");
 let href = '';
 if (pageName) {
     href = `${pageName}.html`;
     if (movieId) {
         href += `?id=${movieId}`;
+    }
+    if (anchor) {
+        href += `#${anchor}`;
     }
 }
 
@@ -100,6 +104,7 @@ function createPage() {
         if (Object.keys(cartStorage.store).length < 1) {
             storageIsEmpty();
         }
+        document.querySelector('#cart-size').textContent = cartStorage.size
     }
 
     ul.querySelectorAll('button').forEach(button => {
@@ -116,6 +121,7 @@ function createPage() {
             if (willDelete) {
                 storageIsEmpty();
                 cartStorage.clear();
+                document.querySelector('#cart-size').textContent = cartStorage.size
             }
         });
     });
@@ -124,6 +130,7 @@ function createPage() {
         swal("Thank you for purchase!");
         storageIsEmpty();
         cartStorage.clear();
+        document.querySelector('#cart-size').textContent = cartStorage.size
     });
 
 }
