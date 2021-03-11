@@ -36,7 +36,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="terms.html">About Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li id="cart-li"><a href="cart.html">Cart <i class="fas fa-shopping-cart"></i></a></li>
+                    <li id="cart-li"><a id="back-page" href="index.html"><i class="fas fa-angle-double-left"></i></a></li>
                 </ul>
             </nav>
         </header>
@@ -45,13 +45,14 @@
             <section class="centered">
 
                 <div class="cartTickets">
+                    <h3 id="empty-msg" style='color: white; text-align: center'>Cart is empty!</h3>
                     <ul id="ticketsList" style="color: honeydew;">
-                        <!-- cia bus kreselio filmai -->
+                        <!-- cia bus krepšelio filmai -->
                     </ul>
                 </div>
                 <div class="ms-4">
-                    <button class="btn btn-success" id="btnCheckout">Checkout</button>
-                    <button class="btn btn-danger" id="btnClearCart">Clear Cart</button>
+                    <button class="btn btn-success invisible" id="btnCheckout">Checkout</button>
+                    <button class="btn btn-danger invisible" id="btnClearCart">Clear Cart</button>
                 </div>
             </section>
 
