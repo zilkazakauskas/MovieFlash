@@ -50,7 +50,8 @@
             a:not([href]) {
                 font-weight: bold;
             }
-            .cinemas > li > a {
+
+            .cinemas>li>a {
                 text-decoration: overline !important;
             }
         </style>
@@ -67,7 +68,12 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="terms.html">About Us</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
-                        <li id="cart-li"><a href="cart.html?p=single">Cart <i class="fas fa-shopping-cart"></i></a></li>
+                        <li id="cart-li">
+                            <a href="cart.html?p=single&a=cinemas-times">Cart 
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="cart-size" class="fw-bolder"></span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </header>
@@ -88,7 +94,7 @@
                     </section>
                     <section class="links">
                         <div class="row" id="cinemas-times">
-                        <h3>Times for Cinemas</h3>
+                            <h3>Times for Cinemas</h3>
                         </div>
                     </section>
 
@@ -145,7 +151,7 @@
         <script type="module">
             import './js/single.js'
         </script>
-        <script src="js/header.js"></script>
+        <script type="module" src="./js/header.js"></script>
     </body>
 
 </html>

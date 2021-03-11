@@ -31,26 +31,32 @@ class CartStorage {
         return storageData ? JSON.parse(storageData) : {};
     }
 
-    set store(tickets) {
+    set store(data) {
         const itemName = this.#itemName
-        localStorage.setItem(itemName, JSON.stringify(tickets));
+        localStorage.setItem(itemName, JSON.stringify(data));
     }
 
     setItem(key, value) {
-        const tickets = this.store;
-        tickets[key] = value;
-        this.store = tickets;
+        const storageData = this.store;
+        storageData[key] = value;
+        this.store = storageData;
     }
 
     getItem(key) {
-        const tickets = this.store;
-        return tickets[key];
+        const storageData = this.store;
+        return storageData[key];
     }
 
     removeItem(key) {
-        const tickets = this.store;
-        delete tickets[key];
-        this.store = tickets;
+        const storageData = this.store;
+        delete storageData[key];
+        this.store = storageData;
+    }
+
+    get size() {
+        const storageData = this.store;
+        const size = Object.keys(storageData).length;
+        return size;
     }
 
     clear() {
