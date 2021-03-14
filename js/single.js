@@ -1,17 +1,16 @@
-import movies, { index } from '../data/movies.js';
+import movies from '../data/movies.js';
 import CartStorage from './CartStorage.js'
 
 const url_string = window.location.href
 const url = new URL(url_string);
-const movieId = url.searchParams.get("id");
-const idx = index[movieId];
-const movieData = movies[idx];
-const { id, title, trailer, image, description, cast, genre, score, showing } = movieData;
+const id = url.searchParams.get("id");
+const movieData = movies[id];
+const { title, trailer, image, description, cast, genre, score, showing } = movieData;
 
 const cartStorage = CartStorage.instance('tickets');
 const tickets = cartStorage.store;
 
-document.querySelector('#cart-li > a').setAttribute('href', `cart.html?p=single&id=${movieId}&a=cinemas-times`);
+document.querySelector('#cart-li > a').setAttribute('href', `cart.html?p=single&id=${id}&a=cinemas-times`);
 const cartSize = document.querySelector('#cart-size')
 
 document.querySelector('#trailer').setAttribute('src', trailer)

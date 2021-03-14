@@ -1,6 +1,5 @@
-const movies = [
-    {
-        id: 1,
+const movies = {
+    "1" : {
         title: "Space Between Us",
         image: "images/1.jpg",
         description: "The first human born on Mars travels to Earth for the first time, experiencing the wonders of the planet through fresh eyes.He embarks on an adventure with a street smart girl to discover how he came to be.",
@@ -43,8 +42,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 2,
+    "2": {
         title: "John Wick",
         image: "images/2.jpg",
         description: "An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.",
@@ -77,8 +75,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 3,
+    "3": {
         title: "Spider-Man Homecoming",
         image: "images/3.jpg",
         description: "",
@@ -107,8 +104,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 4,
+    "4": {
         title: "Beauty and the Beast",
         image: "images/4.jpg",
         description: "A selfish Prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner.",
@@ -141,8 +137,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 5,
+    "5" : {
         title: "Pirates of the Caribbean: Dead Men Tell No Tales",
         image: "images/5.jpg",
         description: "Captain Jack Sparrow is pursued by old rival Captain Salazar and a crew of deadly ghosts who have escaped from the Devil's Triangle. They're determined to kill every pirate at sea...notably Jack.",
@@ -175,8 +170,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 6,
+    "6": {
         title: "The Witches",
         image: "images/6a.jpg",
         description: "A young boy and his grandmother have a run-in with a coven of witches and their leader.",
@@ -207,8 +201,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 7,
+    "7": {
         title: "Hillbilly Elegy",
         image: "images/7a.jpg",
         description: "An urgent phone call pulls a Yale Law student back to his Ohio hometown, where he reflects on three generations of family history and his own future.",
@@ -237,8 +230,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 8,
+    "8": {
         title: "Cadaver",
         image: "images/8a.jpg",
         description: "In the starving aftermath of a nuclear disaster, a family of three attends a charitable event at a hotel, which takes a dark turn when people start to disappear.",
@@ -269,8 +261,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 9,
+    "9": {
         title: "One Night in Miami",
         image: "images/9.jpg",
         description: "A fictional account of one incredible night where icons Muhammad Ali, Malcolm X, Sam Cooke, and Jim Brown gathered discussing their roles in the Civil Rights Movement and cultural upheaval of the 60s.",
@@ -299,8 +290,7 @@ const movies = [
             },
         },
     },
-    {
-        id: 10,
+    "10": {
         title: "Black Box",
         image: "images/10.jpg",
         description: "After losing his wife and his memory in a car accident, a single father undergoes an agonizing experimental treatment that causes him to question who he really is.",
@@ -329,8 +319,6 @@ const movies = [
             },
         },
     },
-]
-
-export const index = Object.fromEntries(movies.map((value, key) => [value.id, key]));
+};
 
 export default movies;

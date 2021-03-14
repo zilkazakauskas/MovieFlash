@@ -1,4 +1,4 @@
-import movies, { index } from '../data/movies.js'
+import movies from '../data/movies.js'
 import CartStorage from './CartStorage.js'
 
 const url_string = window.location.href
@@ -58,8 +58,7 @@ function createPage() {
         const [key, value] = ticket;
         const [id, cinema, date, time] = key.split(';');
         const { quantity } = value;
-        const idx = index[id];
-        const { title } = movies[idx];
+        const { title } = movies[id];
         const li = document.createElement("li");
         li.setAttribute('className', 'tickets');
         li.setAttribute('data-key', key);
