@@ -1,12 +1,12 @@
-import movies from '../data/movies.js'
-import CartStorage from './CartStorage.js'
+import CartStorage from './CartStorage.js';
 
-const url_string = window.location.href
+const url_string = window.location.href;
 const url = new URL(url_string);
-const pageName = url.searchParams.get("p");
-const movieId = url.searchParams.get("id");
-const anchor = url.searchParams.get("a");
-let href = '';
+const pageName = url.searchParams.get('p');
+const movieId = url.searchParams.get('id');
+const anchor = url.searchParams.get('a');
+let href = "";
+
 if (pageName) {
     href = `${pageName}.html`;
     if (movieId) {
@@ -19,15 +19,13 @@ if (pageName) {
 
 document.querySelector('#back-page').setAttribute('href', href);
 
-//bilietu listas
-const ul = document.querySelector("#ticketsList");
-const emptyMsg = document.querySelector("#empty-msg");
+const ul = document.querySelector('#ticketsList');
+const emptyMsg = document.querySelector('#empty-msg');
 
-const btnCheckout = document.querySelector("#btnCheckout");
-const btnClearCart = document.querySelector("#btnClearCart");
+const btnCheckout = document.querySelector('#btnCheckout');
+const btnClearCart = document.querySelector('#btnClearCart');
 
-// bilietu listo generavimas
-
+// Bilietų sąrašas tuščias
 function storageIsEmpty() {
     ul.innerHTML = '';
     emptyMsg.classList.remove('invisible');
@@ -35,31 +33,54 @@ function storageIsEmpty() {
     btnCheckout.classList.add('invisible');
 }
 
+// Bilietų sąrašas užpildytas
 function storageIsFull() {
     emptyMsg.classList.add('invisible');
     btnClearCart.classList.remove('invisible');
     btnCheckout.classList.remove('invisible');
 }
 
-function createPage() {
+const cartStorage = CartStorage.instance('tickets');
+const cartTickets = cartStorage.store;
 
-    const cartStorage = CartStorage.instance('tickets');
-    const cartTickets = cartStorage.store;
-    console.log(cartTickets);
+//bilietu sąrašo įvykių apdorojimas
+function handleBtnClick(event) {
+    const key = event.target.getAttribute('data-key');
+    const span = document.querySelector(`span[data-key="${key}"]`);
+    const action = event.target.getAttribute('data-action');
+    let quantity = parseInt(span.innerHTML);
 
-    if (Object.keys(cartTickets).length < 1) {
-        storageIsEmpty();
+    if (action == 'plus') {
+        quantity++;
+    } else if (action == 'minus') {
+        quantity--;
+    } else if (action == 'remove') {
+        quantity = 0;
+    }
+
+    if (quantity > 0) {
+        span.textContent = `${quantity}`;
+        cartStorage.setItem(key, { quantity });
         return;
     }
 
-    storageIsFull();
+    const li = document.querySelector(`li[data-key="${key}"]`);
+    li.innerHTML = '';
+    cartStorage.removeItem(key);
+    if (Object.keys(cartStorage.store).length < 1) {
+        storageIsEmpty();
+    }
+    document.querySelector('#cart-size').textContent = cartStorage.size;
+}
 
-    Object.entries(cartTickets).forEach(ticket => {
+// bilietų sąrašo generavimas
+function createCartItemList(movies, cartTickets) {
+    Object.entries(cartTickets).forEach((ticket) => {
         const [key, value] = ticket;
         const [id, cinema, date, time] = key.split(';');
         const { quantity } = value;
         const { title } = movies[id];
-        const li = document.createElement("li");
+        const li = document.createElement('li');
         li.setAttribute('className', 'tickets');
         li.setAttribute('data-key', key);
         li.innerHTML = `
@@ -77,61 +98,44 @@ function createPage() {
         ul.appendChild(li);
     });
 
-    function handleBtnClick(event) {
-        const key = event.target.getAttribute('data-key');
-        const span = document.querySelector(`span[data-key="${key}"]`);
-        const action = event.target.getAttribute('data-action');
-        let quantity = parseInt(span.innerHTML);
+    ul.querySelectorAll('button').forEach((button) => {
+        button.addEventListener('click', handleBtnClick);
+    });
+}
 
-        if (action == 'plus') {
-            quantity++;
-        } else if (action == 'minus') {
-            quantity--;
-        } else if (action == 'remove') {
-            quantity = 0;
-        }
-
-        if (quantity > 0) {
-            span.textContent = `${quantity}`;
-            cartStorage.setItem(key, { quantity });
-            return;
-        }
-
-        const li = document.querySelector(`li[data-key="${key}"]`);
-        li.innerHTML = "";
-        cartStorage.removeItem(key);
-        if (Object.keys(cartStorage.store).length < 1) {
-            storageIsEmpty();
-        }
-        document.querySelector('#cart-size').textContent = cartStorage.size
+function createPage() {
+    if (Object.keys(cartTickets).length < 1) {
+        storageIsEmpty();
+        return;
     }
 
-    ul.querySelectorAll('button').forEach(button => {
-        button.addEventListener("click", handleBtnClick)
-    });
+    storageIsFull();
 
-    btnClearCart.addEventListener("click", function () {
+    fetch('./data/movies.json')
+        .then(res => res.json())
+        .then(movies => createCartItemList(movies, cartTickets));
+
+    btnClearCart.addEventListener('click', function () {
         swal({
-            title: "Are you sure want to clear the cart?",
-            icon: "warning",
-            buttons: ["Cancel", "Yes"],
+            title: 'Are you sure want to clear the cart?',
+            icon: 'warning',
+            buttons: ['Cancel', 'Yes'],
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
                 storageIsEmpty();
                 cartStorage.clear();
-                document.querySelector('#cart-size').textContent = cartStorage.size
+                document.querySelector('#cart-size').textContent = cartStorage.size;
             }
         });
     });
 
-    btnCheckout.addEventListener("click", function () {
-        swal("Thank you for purchase!");
+    btnCheckout.addEventListener('click', function () {
+        swal('Thank you for purchase!');
         storageIsEmpty();
         cartStorage.clear();
-        document.querySelector('#cart-size').textContent = cartStorage.size
+        document.querySelector('#cart-size').textContent = cartStorage.size;
     });
-
 }
 
 createPage();
