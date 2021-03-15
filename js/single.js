@@ -22,7 +22,7 @@ function buttonClick(event, title) {
     }
     const cinema = target.getAttribute('data-cinema');
     const date = target.getAttribute('data-date');
-    const time = target.textContent;
+    const time = target.getAttribute('data-time');
     if (confirm(`
                     Movie: ${title}
                     Cinema: ${cinema}
@@ -57,6 +57,7 @@ function dateTimes(id, cinema, date, time) {
                 href="#"
                 data-cinema="${cinema}"
                 data-date="${date}"
+                data-time="${time}"
                 data-quantity="${quantity}"
                 data-new-quantity="${quantity}"
             >
