@@ -1,11 +1,11 @@
 import CartStorage from './CartStorage.js';
 
-const url_string = window.location.href;
-const url = new URL(url_string);
+const urlString = window.location.href;
+const url = new URL(urlString);
 const pageName = url.searchParams.get('p');
 const movieId = url.searchParams.get('id');
 const anchor = url.searchParams.get('a');
-let href = "";
+let href = '';
 
 if (pageName) {
     href = `${pageName}.html`;
@@ -43,18 +43,18 @@ function storageIsFull() {
 const cartStorage = CartStorage.instance('tickets');
 const cartTickets = cartStorage.store;
 
-//bilietu sąrašo įvykių apdorojimas
+// bilietu sąrašo įvykių apdorojimas
 function handleBtnClick(event) {
     const key = event.target.getAttribute('data-key');
     const span = document.querySelector(`span[data-key="${key}"]`);
     const action = event.target.getAttribute('data-action');
-    let quantity = parseInt(span.innerHTML);
+    let quantity = parseInt(span.innerHTML, 10);
 
-    if (action == 'plus') {
-        quantity++;
-    } else if (action == 'minus') {
-        quantity--;
-    } else if (action == 'remove') {
+    if (action === 'plus') {
+        quantity += 1;
+    } else if (action === 'minus') {
+        quantity -= 1;
+    } else if (action === 'remove') {
         quantity = 0;
     }
 
@@ -74,7 +74,7 @@ function handleBtnClick(event) {
 }
 
 // bilietų sąrašo generavimas
-function createCartItemList(movies, cartTickets) {
+function createCartItemList(movies) {
     Object.entries(cartTickets).forEach((ticket) => {
         const [key, value] = ticket;
         const [id, cinema, date, time] = key.split(';');
@@ -112,10 +112,11 @@ function createPage() {
     storageIsFull();
 
     fetch('./data/movies.json')
-        .then(res => res.json())
-        .then(movies => createCartItemList(movies, cartTickets));
+        .then((res) => res.json())
+        .then((movies) => createCartItemList(movies));
 
-    btnClearCart.addEventListener('click', function () {
+    btnClearCart.addEventListener('click', () => {
+        // eslint-disable-next-line no-undef
         swal({
             title: 'Are you sure want to clear the cart?',
             icon: 'warning',
@@ -130,7 +131,8 @@ function createPage() {
         });
     });
 
-    btnCheckout.addEventListener('click', function () {
+    btnCheckout.addEventListener('click', () => {
+        // eslint-disable-next-line no-undef
         swal('Thank you for purchase!');
         storageIsEmpty();
         cartStorage.clear();
