@@ -1,7 +1,4 @@
-import '../libs/jquery-3.1.1.min.js';
-
-const { $ } = window;
-
+/* eslint-disable no-undef */
 $(document).ready(() => {
     $('.toggle img').click(() => {
         $('.menu').slideToggle();
