@@ -1,4 +1,4 @@
-import CartStorage from './CartStorage.js'
+import CartStorage from '../../js/CartStorage.js'
 
 const cartStorage = CartStorage.instance('tickets');
 const tickets = cartStorage.store;
