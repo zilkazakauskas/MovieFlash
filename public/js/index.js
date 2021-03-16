@@ -1,5 +1,11 @@
-$(document).ready(function () {
-    var swiper = new Swiper('.homeslider > .swiper-container', {
+import '../libs/swiper.min.js';
+import '../libs/jquery-3.1.1.min.js';
+
+const { $, Swiper } = window;
+
+$(document).ready(() => {
+    // eslint-disable-next-line no-unused-vars
+    const swiper = new Swiper('.homeslider > .swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
         preventClicks: false,
@@ -7,23 +13,24 @@ $(document).ready(function () {
         effect: 'fade',
         breakpoints: {
             320: {
-                height: 200
+                height: 200,
             },
 
             480: {
-                height: 300
+                height: 300,
             },
 
             768: {
-                height: 400
+                height: 400,
             },
             1024: {
-                height: 500
-            }
-        }
+                height: 500,
+            },
+        },
     });
 
-    var recentswiper = new Swiper('.recentslider > .swiper-container', {
+    // eslint-disable-next-line no-unused-vars
+    const recentswiper = new Swiper('.recentslider > .swiper-container', {
         nextButton: '.recent-next',
         prevButton: '.recent-prev',
         slidesPerView: 8,
@@ -34,26 +41,27 @@ $(document).ready(function () {
         breakpoints: {
             320: {
                 slidesPerView: 3,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
 
             480: {
                 slidesPerView: 3,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
 
             768: {
                 slidesPerView: 5,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
             1024: {
                 slidesPerView: 6,
-                spaceBetween: 10
-            }
-        }
+                spaceBetween: 10,
+            },
+        },
     });
 
-    var mostswiper = new Swiper('.mostslider > .swiper-container', {
+    // eslint-disable-next-line no-unused-vars
+    const mostswiper = new Swiper('.mostslider > .swiper-container', {
         nextButton: '.most-next',
         prevButton: '.most-prev',
         slidesPerView: 8,
@@ -64,26 +72,27 @@ $(document).ready(function () {
         breakpoints: {
             320: {
                 slidesPerView: 3,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
 
             480: {
                 slidesPerView: 3,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
 
             768: {
                 slidesPerView: 5,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
             1024: {
                 slidesPerView: 6,
-                spaceBetween: 10
-            }
-        }
+                spaceBetween: 10,
+            },
+        },
     });
 
-    var topswiper = new Swiper('.topslider > .swiper-container', {
+    // eslint-disable-next-line no-unused-vars
+    const topswiper = new Swiper('.topslider > .swiper-container', {
         nextButton: '.top-next',
         prevButton: '.top-prev',
         slidesPerView: 8,
@@ -94,22 +103,22 @@ $(document).ready(function () {
         breakpoints: {
             320: {
                 slidesPerView: 3,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
 
             480: {
                 slidesPerView: 3,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
 
             768: {
                 slidesPerView: 5,
-                spaceBetween: 5
+                spaceBetween: 5,
             },
             1024: {
                 slidesPerView: 6,
-                spaceBetween: 10
-            }
-        }
+                spaceBetween: 10,
+            },
+        },
     });
 });
