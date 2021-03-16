@@ -1,0 +1,63 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "parser": "@babel/eslint-parser",
+    "extends": [
+        "airbnb-base"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "requireConfigFile": false,
+        "babelOptions": {
+            "plugins": [
+                "@babel/plugin-proposal-private-property-in-object",
+                "@babel/plugin-proposal-class-properties"
+            ]
+        }
+    },
+    "plugins": [
+        "@babel"
+    ],
+    "settings": {
+        "react": {
+            "version": "latest"
+        }
+    },
+    "rules": {
+        "function-paren-newline": ["error", "consistent"],
+        "import/extensions": ["error", "always"],
+        "indent": ["error", 4],
+        "max-len": ["error", {
+            "code": 120,
+            "ignoreComments": true
+        }],
+        "object-curly-newline": ["error", {
+            "ObjectExpression": {
+                "consistent": true
+            },
+            "ObjectPattern": {
+                "consistent": true
+            },
+            "ImportDeclaration": {
+                "consistent": true
+            },
+            "ExportDeclaration": {
+                "consistent": true
+            }
+        }]
+    },
+    "ignorePatterns": ["temp.js", "**/vendor/*.js", "*.min.js", "**/libs/*.js", "**/*.code-workspace", ".vscode/*"],
+    "overrides": [{
+        "files": ["*.test.jsx", "*.spec.jsx", "*.test.js", "*.spec.js"],
+        "rules": {
+            "no-undef": "off"
+        }
+    }]
+}
