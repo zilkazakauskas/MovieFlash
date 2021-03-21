@@ -1,4 +1,5 @@
 import CartStorage from './CartStorage.js';
+import { cinemaList, movieList } from './loadData.js';
 
 const cartStorage = CartStorage.instance('tickets');
 const tickets = cartStorage.store;
@@ -9,7 +10,6 @@ const urlString = window.location.href;
 const url = new URL(urlString);
 const id = url.searchParams.get('id');
 const href = `cart.html?p=single&id=${id}&a=cinemas-times`;
-const moviesUrl = './data/movies.json';
 
 document.querySelector('#cart-li > a').setAttribute('href', href);
 
@@ -31,12 +31,13 @@ function buttonClick(event, title) {
         return;
     }
     const cinema = target.getAttribute('data-cinema');
+    const cinemaName = cinemaList[cinema].name;
     const date = target.getAttribute('data-date');
     const time = target.getAttribute('data-time');
     // eslint-disable-next-line no-alert
     if (window.confirm(`
                 Movie: ${title}
-                Cinema: ${cinema}
+                Cinema: ${cinemaName}
                 Date: ${date}
                 Time: ${time}
                 Quantity: ${newQuantity}
@@ -92,11 +93,13 @@ function cinemaDates(cinema, date, times) {
 }
 
 function showingByCinema(cinema, dates) {
+    const cinemaData = cinemaList[cinema];
     const cinemaDatesHtml = Object.entries(dates).map(([date, times]) => cinemaDates(cinema, date, times)).join('\n');
+    const contactUrl = `contact.html?cinema=${cinema}`;
     return `
         <div class="row">
             <ul class="wlinks col cinemas">
-                <li><a>${cinema}</a></li>
+                <li><a href="${contactUrl}">${cinemaData.name}</a></li>
             </ul>
             <ul class="wlinks col">
                 ${cinemaDatesHtml}
@@ -105,8 +108,8 @@ function showingByCinema(cinema, dates) {
     `;
 }
 
-function movieData(movies) {
-    const { title, trailer, image, description, cast, genre, score, showing } = movies[id];
+function movieData() {
+    const { title, trailer, image, description, cast, genre, score, showing } = movieList[id];
 
     document.querySelector('#trailer').setAttribute('src', trailer);
     document.querySelector('#movie-image').setAttribute('src', image);
@@ -141,10 +144,4 @@ function movieData(movies) {
     );
 }
 
-function showMovieData() {
-    fetch(moviesUrl)
-        .then((res) => res.json())
-        .then((movies) => movieData(movies));
-}
-
-showMovieData();
+movieData();
