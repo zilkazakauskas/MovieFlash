@@ -53,16 +53,5 @@ document.querySelectorAll('#cinemas button.toggle-form').forEach(
         const templateClone = template.content.cloneNode(true);
         container.appendChild(templateClone);
         container.querySelector('#sendTo').value = event.currentTarget.getAttribute('data-to');
-
-        let btnSubmit = document.querySelector('#btnSubmit');
-        let name = document.querySelector('#name');
-        let email = document.querySelector('#sendFrom');
-        let message = document.querySelector('#message');
-
-        btnSubmit.addEventListener('click', function () {
-            if (email.value.includes('@') && name.value !== '' && message.value !== '') {
-                alert('Message sent. Thank you!');
-            }
-        });
     }),
 );
