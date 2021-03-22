@@ -137,11 +137,11 @@ body{font-family: arial,sans-serif; background-color: #191919; position: relativ
 
 
 .contact{float: left; width: calc(100% - 20px); padding: 0 10px;}
-#myForm{float: left; width: 100%;}
-#myForm input[type='text']{float: left; width: calc(100% - 20px); padding: 10px; margin-bottom: 20px; border:none; outline: none;background-color: #cecece;}
-#myForm textarea{float: left; width: calc(100% - 20px); padding:10px; border:none; margin-bottom: 10px; height: 150px; outline: none;background-color: #cecece;}
-#myForm label{float:left; width: 100%; color: #fff; margin-bottom:5px;margin-top:10px;}
-#myForm input[type='submit']{float: left; width: 100%; padding: 10px 10px; margin-bottom: 20px; margin-top: 20px; color:#fff; border:none; background-color: #c22026; outline:none; cursor: pointer;}
+.contact form{float: left; width: 100%;}
+.contact form input[type='text']{float: left; width: calc(100% - 20px); padding: 10px; margin-bottom: 20px; border:none; outline: none;background-color: #cecece;}
+.contact form textarea{float: left; width: calc(100% - 20px); padding:10px; border:none; margin-bottom: 10px; height: 150px; outline: none;background-color: #cecece;}
+.contact form label{float:left; width: 100%; color: #fff; margin-bottom:5px;margin-top:10px;}
+.contact form input[type='submit']{float: left; width: 100%; padding: 10px 10px; margin-bottom: 20px; margin-top: 20px; color:#fff; border:none; background-color: #c22026; outline:none; cursor: pointer;}
 .success{float:left; width: 100%; margin:20px 0; text-align: center; background-color: #8BC34A; color:#fff; padding: 10px 0;}
 .error{float:left; width: 100%; margin:20px 0; text-align: center; background-color: #F44336; color:#fff; padding: 10px 0;}
 
