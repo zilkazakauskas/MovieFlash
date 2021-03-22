@@ -16,11 +16,11 @@ function cinema(entry) {
     const { image, name, streetAddress, city, postalCode, email } = cinemaData;
     return `
         <div id="${key}" class="my-2 py-3">
-            <h3 id="cinema-name">${name}</h3>
-            <img id="cinema-image" class="w-75" src="${image}" alt="Cinema's image"/>
+            <h3>${name}</h3>
+            <img class="w-75" src="${image}" alt="Cinema's image"/>
             <p class="text-white">
-                <span id="cinema-street-adress">${streetAddress}</span><br />
-                <span id="cinema-city">${city}</span>, <span id="cinema-postal-code">${postalCode}</span>
+                <span>${streetAddress}</span><br />
+                <span>${city}</span>, <span>${postalCode}</span>
             </p>
             <button type="button" class="btn btn-dark col-1 toggle-form" data-key="${key}" data-to="${email}">
                 Contact
