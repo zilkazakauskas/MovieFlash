@@ -1,4 +1,5 @@
 import CartStorage from './CartStorage.js';
+import { cinemaList, movieList } from './loadData.js';
 
 const urlString = window.location.href;
 const url = new URL(urlString);
@@ -74,18 +75,19 @@ function handleBtnClick(event) {
 }
 
 // bilietų sąrašo generavimas
-function createCartItemList(movies) {
+function createCartItemList() {
     Object.entries(cartTickets).forEach((ticket) => {
         const [key, value] = ticket;
         const [id, cinema, date, time] = key.split(';');
+        const cinemaName = cinemaList[cinema].name;
         const { quantity } = value;
-        const { title } = movies[id];
+        const { title } = movieList[id];
         const li = document.createElement('li');
         li.setAttribute('className', 'tickets');
         li.setAttribute('data-key', key);
         li.innerHTML = `
         Movie title: ${title}<br />
-        Cinema: ${cinema}<br />
+        Cinema: ${cinemaName}<br />
         Date: ${date}<br />
         Time: ${time}<br />
         Quantity: <span data-key="${key}">${quantity}</span><br />
@@ -111,9 +113,7 @@ function createPage() {
 
     storageIsFull();
 
-    fetch('./data/movies.json')
-        .then((res) => res.json())
-        .then((movies) => createCartItemList(movies));
+    createCartItemList();
 
     btnClearCart.addEventListener('click', () => {
         // eslint-disable-next-line no-undef

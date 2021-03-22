@@ -15,7 +15,7 @@
         "trailer": "https://www.youtube.com/embed/x73-573aWfs",
         "score": 6.4,
         "showing": {
-            "Cinema 1": {
+            "cinema-1": {
                 "2021-02-22": [
                     "09:10",
                     "10:20",
@@ -33,7 +33,7 @@
                     "11:30"
                 ]
             },
-            "Cinema 2": {
+            "cinema-2": {
                 "2021-02-22": [
                     "09:10",
                     "10:20",
@@ -59,14 +59,14 @@
         "trailer": "https://www.youtube.com/embed/C0BMx-qxsP4",
         "score": 7.4,
         "showing": {
-            "Cinema 3": {
+            "cinema-3": {
                 "2021-02-22": [
                     "09:10",
                     "10:20",
                     "11:30"
                 ]
             },
-            "Cinema 4": {
+            "cinema-4": {
                 "2021-02-22": [
                     "09:10",
                     "10:20",
@@ -88,14 +88,14 @@
         "trailer": "https://www.youtube.com/embed/n9DwoQ7HWvI",
         "score": 8.3,
         "showing": {
-            "Cinema 5": {
+            "cinema-5": {
                 "2021-02-22": [
                     "09:10",
                     "10:20",
                     "11:30"
                 ]
             },
-            "Cinema 1": {
+            "cinema-1": {
                 "2021-02-22": [
                     "12:10",
                     "13:20",
@@ -121,14 +121,14 @@
         "trailer": "https://www.youtube.com/embed/e3Nl_TCQXuw",
         "score": 7.4,
         "showing": {
-            "Cinema 2": {
+            "cinema-2": {
                 "2021-02-22": [
                     "12:10",
                     "13:20",
                     "14:30"
                 ]
             },
-            "Cinema 3": {
+            "cinema-3": {
                 "2021-02-22": [
                     "12:10",
                     "13:20",
@@ -154,14 +154,14 @@
         "trailer": "https://www.youtube.com/embed/Hgeu5rhoxxY",
         "score": 6.5,
         "showing": {
-            "Cinema 4": {
+            "cinema-4": {
                 "2021-02-22": [
                     "12:10",
                     "13:20",
                     "14:30"
                 ]
             },
-            "Cinema 5": {
+            "cinema-5": {
                 "2021-02-22": [
                     "12:10",
                     "13:20",
@@ -185,14 +185,14 @@
         "trailer": "https://www.youtube.com/embed/9nlhmJF5FNI",
         "score": 5.2,
         "showing": {
-            "Cinema 1": {
+            "cinema-1": {
                 "2021-02-22": [
                     "15:10",
                     "16:20",
                     "17:30"
                 ]
             },
-            "Cinema 2": {
+            "cinema-2": {
                 "2021-02-22": [
                     "15:10",
                     "16:20",
@@ -214,14 +214,14 @@
         "trailer": "https://www.youtube.com/embed/KW_3aaoSOYg",
         "score": 6.8,
         "showing": {
-            "Cinema 3": {
+            "cinema-3": {
                 "2021-02-22": [
                     "15:10",
                     "16:20",
                     "17:30"
                 ]
             },
-            "Cinema 4": {
+            "cinema-4": {
                 "2021-02-22": [
                     "15:10",
                     "16:20",
@@ -245,14 +245,14 @@
         "trailer": "https://www.youtube.com/embed/eHsdyzddTBg",
         "score": 5.1,
         "showing": {
-            "Cinema 5": {
+            "cinema-5": {
                 "2021-02-22": [
                     "15:10",
                     "16:20",
                     "17:30"
                 ]
             },
-            "Cinema 1": {
+            "cinema-1": {
                 "2021-02-22": [
                     "18:10",
                     "19:20",
@@ -274,14 +274,14 @@
         "trailer": "https://www.youtube.com/embed/K8vf_Cmh9nY",
         "score": 7.2,
         "showing": {
-            "Cinema 2": {
+            "cinema-2": {
                 "2021-02-22": [
                     "18:10",
                     "19:20",
                     "20:30"
                 ]
             },
-            "Cinema 3": {
+            "cinema-3": {
                 "2021-02-22": [
                     "18:10",
                     "19:20",
@@ -303,14 +303,14 @@
         "trailer": "https://www.youtube.com/embed/nj6JIzrIzxk",
         "score": 6.2,
         "showing": {
-            "Cinema 4": {
+            "cinema-4": {
                 "2021-02-22": [
                     "18:10",
                     "19:20",
                     "20:30"
                 ]
             },
-            "Cinema 5": {
+            "cinema-5": {
                 "2021-02-22": [
                     "18:10",
                     "19:20",

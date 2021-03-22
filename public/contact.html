@@ -20,12 +20,33 @@
         <style>
 
 
-
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     </head>
 
     <body>
+        <template id="formTemplate">
+            <div id="formContainer">
+                <form id="contactForm" action="#" method="POST">
+                    <label for="name">To:</label>
+                    <input type="text" name="sendTo" id="sendTo" class="form-control bg-dark text-white" disabled readonly>
+
+                    <label for="email">From:</label>
+                    <input type="text" name="sendFrom" id="sendFrom">
+
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name">
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message"></textarea>
+
+                    <input type="submit" name="submit" value="SEND">
+                </form>
+                <span class="success">Message sent succesfully</span>
+                <span class="error">Failed sending message</span>
+            </div>
+        </template>
+
         <div class="wrapper">
 
             <!-- Header -->
@@ -47,44 +68,29 @@
             </header>
 
             <main class="content">
-                <section class="centered">
-                    <h3>Contact</h3>
-                    <div class="contact">
-                        <form id="myForm" action="#" method="POST">
-                            <label for="name">Name:</label>
-                            <input type="text" name="name" id="name">
-
-                            <label for="email">Email:</label>
-                            <input type="text" name="email" id="email">
-
-                            <label for="message">Message:</label>
-                            <textarea id="message" name="message"></textarea>
-
-                            <input type="submit" name="submit" value="SEND">
-                        </form>
-
-                        <span class="success">Message sent succesfully</span>
-                        <span class="error">Failed sending message</span>
+                <section class="centered container my-2">
+                    <div id="cinemas" class="contact my-2"></div>
+                    <div id="form-holder" class="container contact visually-hidden my-2"></div>
+                </section>
+                <div class="contact">&nbsp;</div>
+                <div class="contact">&nbsp;</div>
+            </main>
+            <!-- Footer -->
+            <footer class="footer fixed-bottom">
+                <div class="row">
+                    <div class="col-3">
+                        <ul id="socialMedia">
+                            <li id="pirmas"><a id="link" href="">Facebook <i class="fab fa-facebook-square"></i></a></li>
+                            <li><a id="link" href="">Instagram <i class="fab fa-instagram"></i></a></li>
+                        </ul>
                     </div>
-        </div>
-        </section>
-
-        </main>
-        <!-- Footer -->
-        <footer class="footer fixed-bottom">
-            <div class="row">
-                <div class="col-3">
-                    <ul id="socialMedia">
-                        <li id="pirmas"><a id="link" href="">Facebook <i class="fab fa-facebook-square"></i></a></li>
-                        <li><a id="link" href="">Instagram <i class="fab fa-instagram"></i></a></li>
-                    </ul>
+                    <div class="col-6" style="color: rgb(121, 121, 121); text-align: center;">Movie flash &copy</div>
+                    <div class="col-2" style="text-align: right;"><a id="link" href="#">info@movieflash.com</a></div>
                 </div>
-                <div class="col-6" style="color: rgb(121, 121, 121); text-align: center;">Movie flash &copy</div>
-                <div class="col-2" style="text-align: right;"><a id="link" href="#">info@movieflash.com</a></div>
-            </div>
-        </footer>
+            </footer>
 
         </div>
+        <script type="module" src="./js/contact.js"></script>
         <script type="module" src="./js/header.js"></script>
     </body>
 
