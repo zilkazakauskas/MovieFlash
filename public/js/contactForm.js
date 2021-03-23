@@ -1,28 +1,31 @@
-const contactForm = document.querySelector('#contactForm');
+const scripts = document.querySelectorAll('script[data-dep="form"]');
+const currentScript = scripts[scripts.length - 1];
+const contactForm = currentScript.parentNode.querySelector('form');
+
 contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const fields = event.target.elements;
+    const { sendTo, sendFrom, name, message } = event.target.elements;
 
-    if (!fields.sendTo.value.includes('@')) {
+    if (!sendTo.value.includes('@')) {
         return;
     }
-    if (!fields.sendFrom.value.includes('@')) {
+    if (!sendFrom.value.includes('@')) {
         return;
     }
-    if (fields.name.value === '') {
+    if (name.value === '') {
         return;
     }
-    if (fields.message.value === '') {
+    if (message.value === '') {
         return;
     }
 
     // eslint-disable-next-line no-alert
     alert(`
-        To: ${fields.sendTo.value}
-        From: ${fields.sendFrom.value}
-        Name: ${fields.name.value}
-        Message: ${fields.message.value}
+        To: ${sendTo.value}
+        From: ${sendFrom.value}
+        Name: ${name.value}
+        Message: ${message.value}
 
         Message was sent! Thank you!
     `);
