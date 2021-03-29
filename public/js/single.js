@@ -58,7 +58,7 @@ function buttonClick(event, title) {
     cartSize.textContent = cartStorage.size;
 }
 
-function dateTimes(cinema, date, time) {
+function dateTime(cinema, date, time) {
     const key = `${id};${cinema};${date};${time}`;
     const quantity = tickets[key] ? tickets[key].quantity : 0;
     const golden = Number(quantity) > 0 ? 'golden' : '';
@@ -81,7 +81,7 @@ function dateTimes(cinema, date, time) {
 }
 
 function cinemaDates(cinema, date, times) {
-    const dateTimesHtml = times.map((time) => dateTimes(cinema, date, time)).join('\n');
+    const dateTimesHtml = times.map((time) => dateTime(cinema, date, time)).join('\n');
     return `
         <li>
             <a>${date}</a>

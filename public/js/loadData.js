@@ -1,17 +1,15 @@
-const moviesUrl = './data/movies.json';
-const cinemasUrl = './data/cinemas.json';
+import JSON5 from '../libs/json5/index.mjs';
 
-async function getCinemas() {
-    const cinemasResp = await fetch(cinemasUrl);
-    return cinemasResp.json();
+const moviesUrl = './data/movies.json5';
+const cinemasUrl = './data/cinemas.json5';
+
+async function getJson(url) {
+    const response = await fetch(url);
+    const text = await response.text();
+    return JSON5.parse(text);
 }
 
-async function getMovies() {
-    const moviesResp = await fetch(moviesUrl);
-    return moviesResp.json();
-}
-
-const cinemaList = await getCinemas();
-const movieList = await getMovies();
+const cinemaList = await getJson(cinemasUrl);
+const movieList = await getJson(moviesUrl);
 
 export { cinemaList, movieList };

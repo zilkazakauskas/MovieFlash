@@ -1,0 +1,42 @@
+{
+    cinema_1: {
+        name: "Metrocentre",
+        streetAddress: "Metrocentre",
+        city: "Gateshead",
+        postalCode: "NE11 9XZ",
+        image: "img/cinema/metrocenter.jpg",
+        email: "metrocentre@movieflash.com",
+    },
+    cinema_2: {
+        name: "BFI IMAX",
+        streetAddress: "1 Charlie Chaplin Walk,",
+        city: "London",
+        postalCode: "SE1 8XR",
+        image: "img/cinema/bfi-imax-1540x960-2-2-1.jpg",
+        email: "bfi-imax@movieflash.com",
+    },
+    cinema_3: {
+        name: "Lee Valley",
+        streetAddress: "Picketts Lock Lane,",
+        city: "Edmonton",
+        postalCode: "N9 0AS",
+        image: "img/cinema/lee-valley.jpg",
+        email: "lee-valley@movieflash.com",
+    },
+    cinema_4: {
+        name: "Trowbridge",
+        streetAddress: "St Stephens Place,",
+        city: "Trowbridge",
+        postalCode: "BA14 8TQ",
+        image: "img/cinema/trowbridge.jpg",
+        email: "trowbridge@movieflash.com",
+    },
+    cinema_5: {
+        name: "Milton Keynes Stadium",
+        streetAddress: "12 Stadium Way West,",
+        city: "Milton Keynes",
+        postalCode: "MK1 1ST",
+        image: "img/cinema/milton-keynes-stadium.jpg",
+        email: "milton-keynes-stadium@movieflash.com",
+    },
+}

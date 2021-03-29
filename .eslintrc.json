@@ -54,7 +54,7 @@
             }
         }]
     },
-    "ignorePatterns": ["temp.js", "**/vendor/*.js", "*.min.js", "**/libs/*.js", "**/*.code-workspace", ".vscode/*"],
+    "ignorePatterns": ["temp.js", "**/vendor/**/*.js", "*.min.js", "**/libs/**/*.*", "**/*.code-workspace", ".vscode/*"],
     "overrides": [{
         "files": ["*.test.jsx", "*.spec.jsx", "*.test.js", "*.spec.js"],
         "rules": {
