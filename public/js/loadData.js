@@ -1,7 +1,7 @@
-import JSON5 from '../libs/json5/index.mjs';
+import JSON5 from '../vendor/json5/index.mjs';
 
-const moviesUrl = './data/movies.json5';
-const cinemasUrl = './data/cinemas.json5';
+const moviesUrl = '../data/movies.json5';
+const cinemasUrl = '../data/cinemas.json5';
 
 async function getJson(url) {
     const response = await fetch(url);

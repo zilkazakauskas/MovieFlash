@@ -1,5 +1,5 @@
-import '../libs/swiper.min.js';
-import '../libs/jquery-3.1.1.min.js';
+import '../vendor/swiper.min.js';
+import '../vendor/jquery-3.1.1.min.js';
 
 const { $, Swiper } = window;
 

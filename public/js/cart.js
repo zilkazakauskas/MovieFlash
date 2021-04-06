@@ -6,6 +6,9 @@ const url = new URL(urlString);
 const pageName = url.searchParams.get('p');
 const movieId = url.searchParams.get('id');
 const anchor = url.searchParams.get('a');
+
+const { swal } = window;
+
 let href = '';
 
 if (pageName) {
